@@ -12,8 +12,8 @@ class Board extends Component {
     super();
 
     this.state = {
-      cards: [{name: 'Michelle', emoji: 'happy-emoji'},
-      {name: 'Stella', emoji: 'cat-emoji'}],
+      cards: [{text: 'u go grl', emoji: 'happy-emoji'},
+      {text: 'you can do itttt', emoji: 'cat-emoji'}],
     };
   }
   //
@@ -46,7 +46,8 @@ class Board extends Component {
     const cardCollection = cards.map((card, i) => {
       return <Card
         key={i}
-        name = {card.name}
+        id={i}
+        text = {card.text}
         emoji = {card.emoji}
         />
     });
