@@ -17,7 +17,7 @@ class Card extends Component {
 
     return (
       <div className="card">
-        <p>Text: {text}</p>
+        <p>Text: "{text}"</p>
         <p>Emoji: {emoji}</p>
       </div>
     )

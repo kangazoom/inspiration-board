@@ -11,10 +11,18 @@ class Board extends Component {
   constructor() {
     super();
 
+    this.emojiLibrary = require('emoji-dictionary');
+
     this.state = {
-      cards: [{text: 'u go grl', emoji: 'happy-emoji'},
-      {text: 'you can do itttt', emoji: 'cat-emoji'}],
+      cards: [{text: 'u go grl', emoji: this.emojify('heart_eyes')},
+      {text: 'you can do itttt', emoji: this.emojify('grinning')}],
     };
+
+  }
+
+
+  emojify = (emojiTextName) => {
+    return this.emojiLibrary.getUnicode(emojiTextName);
   }
   //
   // addCard = (newCard) => {
