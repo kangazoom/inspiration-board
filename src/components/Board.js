@@ -12,22 +12,57 @@ class Board extends Component {
     super();
 
     this.state = {
-      cards: [],
+      cards: [{name: 'Michelle', emoji: 'happy-emoji'},
+      {name: 'Stella', emoji: 'cat-emoji'}],
     };
   }
+  //
+  // addCard = (newCard) => {
+  //   const cards = {name: 'Michelle', emoji: 'happy-emoji'},
+  // {name: 'Stella', emoji: 'cat-emoji'}
+  //
+  //   cards.push(newCard);
+  //   this.setState({cards: cards})
+  // }
+
+  // collectCards = () => {
+  //   const cardsToAdd =
+  //
+  //   cardsToAdd.forEach((card) => {
+  //     let cards = this.state.cards;
+  //
+  //     cards.push(card);
+  //   });
+  //   this.setState({cards: cardsToAdd})
+  //
+  // }
+
 
   render() {
+    console.log(this.state.cards)
+
+    const cards = this.state.cards
+
+    const cardCollection = cards.map((card, i) => {
+      return <Card
+        key={i}
+        name = {card.name}
+        emoji = {card.emoji}
+        />
+    });
+
+
     return (
       <div>
-        Board
-      </div>
-    )
-  }
-
+        <p>{cardCollection}</p>
+        </div>
+      )
+    }
 }
 
-Board.propTypes = {
 
-};
+  // Board.propTypes = {
+  //
+  // };
 
-export default Board;
+  export default Board;
