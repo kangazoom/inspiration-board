@@ -14,22 +14,24 @@ class Board extends Component {
     this.emojiLibrary = require('emoji-dictionary');
 
     this.state = {
-      cards: [{text: 'u go grl', emoji: this.emojify('heart_eyes')},
-      {text: 'you can do itttt', emoji: this.emojify('grinning')}],
+      cards: [],
     };
-
   }
 
+  componentDidMount() {
+    this.setState({
+      cards: fetchCardData()
+    });
+  }
 
   emojify = (emojiTextName) => {
     return this.emojiLibrary.getUnicode(emojiTextName);
   }
-  //
+
   // addCard = (newCard) => {
-  //   const cards = {name: 'Michelle', emoji: 'happy-emoji'},
-  // {name: 'Stella', emoji: 'cat-emoji'}
+  //   const cards = this.state.cards;
   //
-  //   cards.push(newCard);
+  //   cards.push(newCard)
   //   this.setState({cards: cards})
   // }
 
@@ -56,7 +58,7 @@ class Board extends Component {
         key={i}
         id={i}
         text = {card.text}
-        emoji = {card.emoji}
+        emoji = {this.emojify(card.emoji)}
         />
     });
 
@@ -67,6 +69,11 @@ class Board extends Component {
         </div>
       )
     }
+}
+
+const fetchCardData = () => {
+  return [{text: 'u go grl', emoji: 'heart_eyes'},
+  {text: 'you can do itttt', emoji: 'grinning'}]
 }
 
 
