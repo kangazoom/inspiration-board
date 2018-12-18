@@ -7,26 +7,27 @@ import './Card.css';
 class Card extends Component {
   constructor(props) {
     super(props);
-
   };
 
 
   render() {
 
-    let text = this.props.text;
-    let emoji = this.props.emoji;
+    let key = this.props.card.key;
+    let text = this.props.card.text;
+    let emoji = this.props.card.emoji;
+
 
     return (
-      <div className="card">
-        <p>Text: "{text}"</p>
+      <div className="card" key={key}>
+        <p >Text: "{text}"</p>
         <p>Emoji: {emoji}</p>
       </div>
     )
   }
 }
-
-Card.propTypes = {
-
-};
+//
+// Card.propTypes = {
+//
+// };
 
 export default Card;

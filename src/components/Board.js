@@ -69,19 +69,28 @@ class Board extends Component {
 
 
   render() {
-    const cards = this.state.cards
+    let cards = this.state.cards
 
-    const cardCollection = cards.map((card, i) => {
+    let cardCollection = cards.map((card) => {
+
+      // console.log(cards[i])
+
+      console.log(card.card.id)
+
 
       let formattedCard = {
-        key: i,
-        id: i,
-        text: card.text,
-        emoji: this.emojify(card.emoji)
+        // key: i,
+        id: card.card.id,
+        text: card.card.text,
+        emoji: this.emojify(card.card.emoji)
         }
 
-      return <Card key={card.id}
-                  card={formattedCard} />
+      console.log(formattedCard)
+
+      return <Card id={formattedCard.id}
+                  key={formattedCard.key}
+                  card={formattedCard}
+                  />
 
 
     });
@@ -89,7 +98,7 @@ class Board extends Component {
 
     return (
       <div>
-        <p>{cardCollection}</p>
+        {cardCollection}
         </div>
       )
     }
