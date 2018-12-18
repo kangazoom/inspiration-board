@@ -75,7 +75,7 @@ class Board extends Component {
 
       // console.log(cards[i])
 
-      console.log(card.card.id)
+      // console.log(card.card.id)
 
 
       let formattedCard = {
@@ -85,11 +85,9 @@ class Board extends Component {
         emoji: this.emojify(card.card.emoji)
         }
 
-      console.log(formattedCard)
+      // console.log(formattedCard)
 
-      return <Card id={formattedCard.id}
-                  key={formattedCard.key}
-                  card={formattedCard}
+      return <Card card={formattedCard}
                   />
 
 

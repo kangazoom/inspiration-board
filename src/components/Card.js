@@ -12,13 +12,15 @@ class Card extends Component {
 
   render() {
 
-    let key = this.props.card.key;
+    console.log(this.props.card.id)
+    let id = this.props.card.id;
+    console.log(id)
     let text = this.props.card.text;
     let emoji = this.props.card.emoji;
 
 
     return (
-      <div className="card" key={key}>
+      <div className="card" key={id}>
         <p >Text: "{text}"</p>
         <p>Emoji: {emoji}</p>
       </div>

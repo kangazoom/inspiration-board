@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`card will match the Card Snapshot 1`] = `
+<div
+  className="card"
+  key="1"
+>
+  <p>
+    Text: "
+    testing is fun!
+    "
+  </p>
+  <p>
+    Emoji: 
+  </p>
+</div>
+`;
