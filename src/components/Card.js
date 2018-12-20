@@ -10,11 +10,16 @@ class Card extends Component {
   };
 
 
+  onDeleteHander = (event) => {
+    console.log(this.props.card.id)
+
+    // event.preventDefault();
+    this.props.card.deleteCardCB(this.props.card.id)
+  }
+
   render() {
 
-    console.log(this.props.card.id)
     let id = this.props.card.id;
-    console.log(id)
     let text = this.props.card.text;
     let emoji = this.props.card.emoji;
 
@@ -23,6 +28,7 @@ class Card extends Component {
       <div className="card" key={id}>
         <p >Text: "{text}"</p>
         <p>Emoji: {emoji}</p>
+        <button onClick={this.onDeleteHander}>Delete</button>
       </div>
     )
   }

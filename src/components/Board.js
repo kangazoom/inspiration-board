@@ -46,6 +46,18 @@ class Board extends Component {
     // });
   }
 
+deleteCard = (cardID) => {
+  axios.delete(`https://inspiration-board.herokuapp.com/cards/${cardID}`)
+     .then((response) => {
+       let card = this.state.cards.find((card) => card.id === response.data.card.id);
+       let updatedCardCollection = this.state.cards.filter(element => element !== card);
+
+       this.setState({cards: updatedCardCollection});
+     })
+     .catch((error) => {
+       console.log(error.message);
+     })
+}
 
 
   // addCard = (newCard) => {
@@ -68,6 +80,8 @@ class Board extends Component {
   // }
 
 
+
+
   render() {
     let cards = this.state.cards
 
@@ -82,10 +96,11 @@ class Board extends Component {
         // key: i,
         id: card.card.id,
         text: card.card.text,
-        emoji: this.emojify(card.card.emoji)
+        emoji: this.emojify(card.card.emoji),
+        deleteCardCB: this.deleteCard
         }
 
-      // console.log(formattedCard)
+      console.log(formattedCard)
 
       return <Card card={formattedCard}
                   />
